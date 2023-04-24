@@ -1,0 +1,195 @@
+
+<body class="body main-meeting" >
+<main >
+    <div class="row">
+        <div class="col-lg-3" id="image-container">
+            <div class="text-center container-lg">
+                <%if(messages.length === 0){%>
+                <h3 id="meeting-code"><%=rooms.name%></h3>
+                <%}else{%>
+                <h3 id="meeting-code"><%=messages[0].room_name%></h3>
+                <%}%>
+
+            </div>
+
+        </div>
+        <div class="col-lg-9">
+            <div class="content-border2">
+            <div class="message-bubble2">
+                <textarea class="form-control" id="message-input" maxlength="180" placeholder="Ask a question" rows="3"></textarea>
+                <button class = "page-btn" id ='send-btn' type="button" onclick="sendMessage()">Send</button>
+                <b id = "char-remaining"></b>
+            </div>
+            <div id = 'poruke'>
+
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /*
+        $(document).ready(function(){
+            $("#send-btn").on("click", function(event){
+                event.preventDefault();
+                let content = $("#message-input").val();
+                $.ajax({
+                        method: "POST",
+                        action: "/upload",
+                        url: "/meeting/add-message",
+                        contentType: "application/json",
+                        data: JSON.stringify({
+                            content: content,
+                        }),
+                        success: function (res) {
+                            if (res.mogu)
+                                window.location.href = "/presenter/meetings";
+                        }
+                    })
+            });
+        });
+        */
+        $(document).ready(function() {
+
+            let characterCount = $('#message-input').val().length,
+                remaining = $('#char-remaining'),
+                maximum = document.getElementById('message-input').maxLength;
+            remaining.text(characterCount + '/' + maximum);
+        });
+        $( '#message-input' ).keyup(function() {
+            let characterCount = $('#message-input').val().length,
+                remaining = $('#char-remaining'),
+                maximum = document.getElementById('message-input').maxLength;
+            remaining.html(characterCount + '/' + maximum);
+        });
+
+        var socket = io.connect('ws://localhost:3000');
+
+        socket.on('sve_poruke', function (d) {
+            let html = '';
+
+            for(let i = 0; i < d.length; i ++)
+                html+= `<div class="message-bubble"> <p class="content">`+d[i].content+`</p> <div class="row"> <div class="col-md-6">Anonymous </div> <div class="col-md-6 likes"> <button id= "button-`+d[i].msg_id+`"><i id="`+d[i].msg_id+`" class="fa-regular fa-thumbs-up like-btn" onclick="increaseLikes(this.id)">`+d[i].likes+`</i></button></div> </div> </div>`;
+
+                document.getElementById('poruke').innerHTML = html;
+        });
+        socket.on('update_like', function (id) {
+            document.getElementById(id.toString()).textContent = parseInt(document.getElementById(id.toString()).textContent)+1;
+        });
+
+        function sendMessage(){
+            let tekst = document.getElementById("message-input").value;
+            socket.emit('klijent_salje_poruku',tekst);
+        }
+        function increaseLikes(id){
+            let button = 'button-'+id.toString()
+            if(document.getElementById(button).disabled === false) {
+                let button = 'button-' + id.toString()
+                document.getElementById(button).disabled = true;
+                document.getElementById(button);
+
+                socket.emit('like', id);
+            }
+        }
+/*
+        $(document).ready(function() {
+
+            let characterCount = $('#message-input').val().length,
+                remaining = $('#char-remaining'),
+                maximum = document.getElementById('message-input').maxLength;
+            remaining.text(characterCount + '/' + maximum);
+            console.log(localStorage.getItem("theme"));
+            $('#light-mode').on("click", function () {
+                $("#light-mode").hide();
+                $("#dark-mode").show();
+                $(".main-meeting").attr("style", "background-color:#242526")
+                $("*").css("--color", "#9876DC");
+                $("#meeting-code").attr("style", "color:white");
+
+                localStorage.setItem("theme", "dark-mode");
+            });
+            $('#dark-mode').on("click", function () {
+                $("#light-mode").show();
+                $("#dark-mode").hide();
+                $(".main-meeting").attr("style", "background-color:white");
+                $("*").css("--color", "#DE9E37");
+
+                $("#meeting-code").attr("style", "color:black")
+
+                localStorage.setItem("theme", "light-mode");
+            })
+            $('.like-btn').on("click", function (){
+                console.log("klik");
+            });
+
+        });
+        $( '#message-input' ).keyup(function() {
+            let characterCount = $('#message-input').val().length,
+                remaining = $('#char-remaining'),
+                maximum = document.getElementById('message-input').maxLength;
+            remaining.html(characterCount + '/' + maximum);
+        });
+
+
+
+            function lightMode(){
+                let light = document.getElementById("light-mode");
+                let dark = document.getElementById('dark-mode');
+                light.style.display = 'block';
+                dark.style.display = 'none';
+            }
+            function darkMode(){
+                let light = document.getElementById("light-mode");
+                let dark = document.getElementById('dark-mode');
+                light.style.display = "none";
+                dark.style.display = "block";
+
+            }
+
+
+            socket.on('poruka_sa_servera', function (d) {
+            console.log(d);
+            let html = `
+                 <div class="message-bubble">
+                <p class="content">`+d+`</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        Anonymous
+                    </div>
+                    <div class="col-md-6 likes">
+                            <i class="fa-regular fa-thumbs-up like-btn" id="`+d+`" onclick="increaseLikes(this.id)">`+d+`</i></div>
+
+                </div>
+            </div>
+                `
+            document.getElementById('poruke').innerHTML += html;
+        });
+
+        socket.on('sve_poruke', function (d) {
+            let html ='';
+            for(let i = 0; i<d.length;i++){
+                html += `
+                 <div class="message-bubble">
+                <p class="content">`+d[i].content+`</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        Anonymous
+                    </div>
+                    <div class="col-md-6 likes">
+                            <i class="fa-regular fa-thumbs-up like-btn" id="`+d[i].msg_id+`" onclick="increaseLikes(this.id)">`+d[i].likes+`</i></div>
+
+                </div>
+            </div>
+                `
+                document.getElementById('poruke').innerHTML = html;
+            }
+        });
+
+
+*/
+
+
+        </script>
+</main>
+</body>
+

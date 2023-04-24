@@ -1,0 +1,94 @@
+<body class="body" id ="page-content">
+<main>
+    <div class="container content-border">
+
+        <div class="row text-center">
+
+            <div class="col-lg-12">
+                <h1 id="meeting-code">Meeting code: <%=code%></h1>
+            </div>
+
+        </div>
+        <div class="row text-center">
+            <div>
+                <a id = "invite-link" href="/presenter/meetings/<%=id%>/invite">
+                    <button class="admin-btn invite">Invite participants</button>
+                </a>
+            </div>
+
+            <div class="col-lg-4 unanswered-questions" >
+                <h3>Unanswered Questions: </h3>
+
+                <div id = "unanswered-questions">
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 answered-questions" >
+                <h3>Answered Questions: </h3>
+
+                <div id="answered-questions">
+
+                </div>
+            </div>
+
+            <div class="col-lg-4 hidden-questions">
+                <h3>
+                    Hidden Questions:
+                    <button class="admin-btn" id = "show" onclick="hiddenMessages()">Show</button>
+                </h3>
+                <div id="hidden-questions">
+
+                </div>
+            </div>
+        </div>
+        <script>
+            var socket = io.connect('ws://localhost:3000');
+
+            socket.on('sve_poruke', function (d) {
+                let hidden = '';
+                let unanswered ='';
+                let answered = '';
+
+                for(let i = 0; i < d.length; i ++) {
+                    if(d[i].type === "Forbidden")
+                        hidden += `<div class="msg-container"><div id="row`+d[i].id+`" ><div class="message-bubble-presenter"><p>`+d[i].content+`</p><p><i class="fa-regular fa-thumbs-up like-btn"></i>`+d[i].likes+`</p></div><button class="admin-btn" onclick="answerMessage(`+d[i].msg_id+`)">Answer</button><button class="delete-btn" onclick="deleteMessage(`+d[i].msg_id+`)">Delete</button></div></div>`
+                    else if(d[i].type === "Unanswered")
+                        unanswered += `<div class="msg-container"><div id="row`+d[i].id+`" ><div class="message-bubble-presenter"><p>`+d[i].content+`</p><p><i class="fa-regular fa-thumbs-up like-btn"></i>`+d[i].likes+`</p></div><button class="admin-btn" onclick="answerMessage(`+d[i].msg_id+`)">Answer</button><button class="delete-btn" onclick="deleteMessage(`+d[i].msg_id+`)">Delete</button></div></div>`
+                    else
+                        answered += `<div class="msg-container"><div id="row`+d[i].id+`" ><div class="message-bubble-presenter"><p>`+d[i].content+`</p><p><i class="fa-regular fa-thumbs-up like-btn"></i>`+d[i].likes+`</p></div><button class="delete-btn" onclick="deleteMessage(`+d[i].msg_id+`)">Delete</button></div></div>`
+                }
+                console.log(answered);
+                console.log(unanswered);
+                document.getElementById('hidden-questions').innerHTML = hidden;
+                document.getElementById('answered-questions').innerHTML = answered;
+                document.getElementById('unanswered-questions').innerHTML = unanswered;
+
+
+            });
+
+            function hiddenMessages(){
+                let show = document.getElementById('show');
+                let hidden = document.getElementById('hidden-questions');
+                if(show.textContent === 'Show') {
+                    hidden.style.display = 'block';
+                    show.textContent = 'Hide'
+                }
+                else{
+                    hidden.style.display = 'none';
+                    show.textContent = 'Show'
+                }
+            }
+
+            function deleteMessage(id){
+                socket.emit('delete_message',id);
+            }
+            function answerMessage(id){
+                socket.emit('answer_message',id);
+            }
+        </script>
+    </div>
+</main>
+</body>
+

@@ -1,0 +1,15 @@
+<body class="body" id ="page-content">
+<main>
+    <div class="container content-border">
+        <form class="form-edit" method="POST" action="/administrator/words/<%=forbidden.id%>/update" autocomplete = "off">
+            <h2 class="edit-title">Edit word:</h2>
+            <label for="inputWord">Forbidden word:</label><br>
+            <input class="edit-input" type="text" name="word" id="inputWord" value="<%=forbidden.word%>" placeholder="Word"><br>
+            <button type="submit" class="admin-btn">Save</button>
+            <% if (message_error!== []) { %>
+                <div class="flash error"><%= message_error %></div>
+            <% } %>
+        </form>
+    </div>
+</main>
+</body>

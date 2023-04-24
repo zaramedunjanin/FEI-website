@@ -1,0 +1,84 @@
+main{
+    background-image: linear-gradient(60deg, #DE9E37 25%, transparent 25%),
+    linear-gradient(300deg, #9876DC 25%, transparent 25%);
+}
+.container-content{
+    padding-right: 10%;
+    padding-left: 10%;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+.logo:link, .logo:visited, .logo:focus, .logo:active{
+    margin-right: 2%;
+    font-weight: bold;
+    font-variant: small-caps;
+    font-size: 50px;
+    color: #9876DC;
+    text-decoration: none;
+}
+
+.main-quote{
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+.login{
+    display: flex;
+}
+.login-text{
+    margin: 0;
+    padding-top: 8.5px;
+    padding-bottom: 8.5px;
+    padding-right: 8.5px;
+}
+
+.description{
+    margin-bottom: 10%;
+}
+
+.nav-link:link,.nav-link:visited, .nav-link:focus, .nav-link:active{
+    color: black;
+    border: none;
+}
+.nav-link:hover, #account-button:hover{
+    color: #DE9E37 !important;
+}
+.nav-item{
+    white-space: nowrap;
+    margin-left: 10%;
+}
+.navbar-nav{
+    margin-right: auto;
+}
+
+#navbar-container{
+    margin-right: auto;
+    margin-left: auto;
+    box-shadow: 0 4px 10px -6px #755BA8;
+}
+
+
+.sign-up-text, .code-text{
+    margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 990px) {
+
+    #signup-btn{
+        margin-bottom: 60px;
+    }
+}
+
+@media only screen and (max-width: 787px) {
+    .login-text{
+        display: none;
+    }
+    .nav-item{
+        margin-left: 0;
+    }
+
+    #signup-btn{
+        margin-bottom: 60px;
+    }
+}

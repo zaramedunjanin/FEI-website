@@ -1,0 +1,50 @@
+
+<body class="body" id ="page-content">
+<main>
+    <div class="container content-border">
+        <form id = "editMeeting" class="form-edit" method="POST" action="/" autocomplete = "off">
+            <h2 class="edit-title">Edit meeting:</h2>
+            <p>Meeting ID: <b id="meeting-id"><%=id%></b></p><br>
+            <label for="inputName">Meeting name:</label><br>
+            <input class="page-input" type="text" name="name" id="inputName" value="<%=meeting.name%>" placeholder="Name"><br>
+            <label for="inputCode">Meeting code:</label><br>
+            <input class="page-input" type="text" name="code" id="inputCode" value="<%=meeting.code%>" placeholder="Code"><br>
+            <label for="inputTime">Date:</label><br>
+            <input class="page-input" data-date-format="YYYY-MM-DD" value="<%=meeting.time.toLocaleDateString()%>" type="date" name="date" id="inputDate" placeholder="Date"><br>
+            <label for="inputRepeat">Repeat:</label><br>
+            <%if(meeting.repeat.toString()==="Once"){%>
+                    <select id="inputRepeat" name="inputRepeat" class="edit-input">
+                        <option value="Once" name="once" selected>Once</option>
+                        <option value="Every Week"  name="every-week">Every week</option>
+                        <option value="Every Month" name="every-month" >Every month</option>
+                    </select><br>
+            <%}%>
+            <%if(meeting.repeat.toString()==="Every Week"){%>
+                <select id="inputRepeat" name="inputRepeat" class="edit-input">
+                    <option value="Once" name="once" >Once</option>
+                    <option value="Every Week"  name="every-week" selected>Every week</option>
+                    <option value="Every Month" name="every-month" >Every month</option>
+                </select><br>
+            <%}%>
+            <%if(meeting.repeat.toString()==="Every Month"){%>
+                <select id="inputRepeat" name="inputRepeat" class="edit-input">
+                    <option value="Once" name="once" >Once</option>
+                    <option value="Every Week"  name="every-week" >Every week</option>
+                    <option value="Every Month" name="every-month" selected>Every month</option>
+                </select><br>
+            <%}%>
+            <label for="inputCover">Cover:</label><br>
+            <label for="inputCover" class="edit-input">New Cover</label>
+            <input  type="file" name="cover" value = "<%= meeting.cover %>" id="inputCover"  accept="image/*">
+            <img class="cover-img" id = "cover" src="<%= meeting.cover %>" alt="No Cover"><br>
+            <div class="flash error" id = "error" >We couldn't save your input!</div>
+
+            <button type="submit" class="admin-btn">Save</button>
+        </form>
+        <script src="/javascripts/presenter_edit_meeting.js"></script>
+
+    </div>
+</main>
+
+</body>
+

@@ -1,0 +1,99 @@
+*{
+    --purple:#9876DC;
+    --color: #DE9E37;
+    color: black;
+    font-size: 15px;
+
+}
+.main-meeting{
+    background-color: #9876DC20;
+    height: 100%;
+}
+
+.message-bubble{
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom:  var(--purple) 2px solid;
+    margin-left: 30%;
+    margin-right: 30%;
+    font-size: 15px;
+    padding: 1%;
+    margin-bottom: 1%;
+
+}
+.message-bubble2{
+    border-left: none;
+    border-right: none;
+    border-bottom:  var(--purple) 2px solid;
+    margin-left: 30%;
+    margin-right: 30%;
+    font-size: 15px;
+    padding: 2%;
+    margin-bottom: 1%;
+    margin-top: 5%;
+
+}
+.content-border2{
+    background-color: white;
+    border: #A8958380 solid 1px;
+    border-radius: 10px;
+    margin: 5% 10% 10% 10%;
+}
+.cover-img{
+    max-width: 100%;
+    max-height: 100%;
+}
+#image-container{
+    margin-top: 5%;
+}
+.likes{
+    text-align: right;
+}
+
+#light-mode{
+    width: 5%;
+    padding-top: 2%;
+    padding-left: 2%;
+}
+#dark-mode{
+    width: 5%;
+    padding-top: 2%;
+    padding-left: 2%;
+    color: white;
+    display: none;
+}
+#cover-img{
+    height: 200px;
+}
+#message-input{
+    padding: 10px;
+    border: 2px solid var(--color);
+    box-shadow: none;
+    outline: none;
+    resize: none;
+    border-radius: 30px;
+}
+#message-input::placeholder{
+    color: black;
+}
+
+#meeting-code{
+    padding: 5%;
+    text-align: center;
+}
+.admin-btn{
+    margin-top: 2% ;
+}
+
+.mode-btn{
+    padding: 2%;
+    border:none;
+    background-color: none;
+}
+.send-msg{
+    display: inline;
+}
+#send-btn{
+    margin: 1%;
+}

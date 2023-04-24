@@ -1,0 +1,32 @@
+<body class="body" id ="page-content">
+<main>
+    <div class="container content-border">
+        <form id = "addMeeting" class="form-edit" method="POST" action="/" autocomplete = "off">
+            <h2 class="edit-title">Add Meeting:</h2>
+            <label for="inputCode">Presenter ID:</label><br>
+            <input class="edit-input" type="text" name="id" id="inputPresenter"  placeholder="Presenter ID"><br>
+
+            <label for="inputName">Meeting name:</label><br>
+            <input class="edit-input" type="text" name="name" id="inputName" placeholder="Name" required><br>
+            <label for="inputCode">Meeting code:</label><br>
+            <input class="edit-input" type="text" name="code" id="inputCode" placeholder="Code" required><br>
+            <label for="inputDate">Date:</label><br>
+            <input type="date" name="date" id="inputDate" class="edit-input" data-date-format="YYYY-MM-DD" placeholder="Time:" required><br>
+            <label for="inputRepeat">Repeate:</label><br>
+            <select id="inputRepeat" name="inputRepeat" class="edit-input">
+                <option value="Once" name="once">Once</option>
+                <option value="Every Week"  name="every-week">Every week</option>
+                <option value="Every Month" name="every-month">Every month</option>
+            </select><br>
+            <label for="inputCode">Cover:</label><br>
+            <label for="inputCover" class="edit-input">Cover</label><br>
+            <input  type="file" name="cover" id="inputCover" accept="image/*"><br>
+            <div class="flash error" id = "error" >We couldn't save your input!</div>
+            <button type="submit" class="admin-btn">Save</button>
+
+        </form>
+    </div>
+    <script src="/javascripts/admin_add_meeting.js"></script>
+</main>
+
+</body>

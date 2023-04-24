@@ -1,0 +1,58 @@
+<body class="body" id ="page-content">
+<main>
+    <div class="container content-border">
+
+        <div class="dropdown dropdown-sort">
+            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Sort by:
+            </button>
+            <ul class="dropdown-menu ">
+                <li id = "sort-time-desc"><a class="sort-link" href = "/presenter/meetings?sort=newest">Newest</a></li>
+                <li id = "sort-time-asc"><a class="sort-link" href = "/presenter/meetings?sort=oldest">Oldest</a></li>
+
+            </ul>
+            <a href="/presenter/meetings/add">
+                <button class="admin-btn add-btn">Add Meeting</button>
+            </a>
+        </div>
+
+        <table id = "table_id" class="table table-hover db-table text-center">
+
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Name</th>
+                <th scope="col">Code</th>
+                <th scope="col">Date</th>
+                <th scope="col">Repeat</th>
+
+                <th scope="col">Cover</th>
+
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+            <%for(let i = 0; i < meetings.length; i+=1){%>
+            <tr id="row<%=meetings[i].id%>">
+                <td></td>
+
+                <td><a class="meeting-link" href='/meeting/<%=meetings[i].code%>/presenter'><%= meetings[i].name%></a></td>
+                <td><%= meetings[i].code%></td>
+                <td><%= meetings[i].time.toLocaleDateString()%></td>
+                <td><%= meetings[i].repeat%></td>
+                <td><img class="cover-img" src="<%= meetings[i].cover %>" alt="No Cover"></td>
+                <td>
+                    <a href="/presenter/meetings/<%=meetings[i].id%>/edit"><button name="edit_button" class="admin-btn" type="button">Edit</button></a>
+                </td>
+                <td>
+                    <a href="/presenter/meetings/<%=meetings[i].id%>/delete"><button name="delete_button" class="admin-btn" type="button">Delete</button></a>
+                </td>
+            </tr>
+            <%}%>
+
+        </table>
+    </div>
+    <script>
+
+    </script>
+</main>
+
+</body>

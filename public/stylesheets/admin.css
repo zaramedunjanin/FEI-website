@@ -1,0 +1,103 @@
+
+#page-content{
+    background-color: #DE9E3720;
+    height: 100%;
+}
+html{
+    min-height: 100%;
+}
+.form-edit{
+    display: block;
+    margin-left: 10%;
+}
+
+.edit-input{
+    margin: 2%;
+    background: none;
+    padding: 5px;
+    border: #DE9E37 solid 2px;
+    border-radius: 10px;
+    box-shadow: none;
+    outline: none;
+}
+.edit-input:focus, .edit-input:active{
+    border: #D95B29 solid 2px;
+}
+.edit-title{
+    margin-bottom: 5%;
+    font-weight: bold;
+}
+.content-border{
+    background-color: white;
+    padding: 2%;
+    border: #A8958380 solid 1px;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    margin-top: 5%;
+
+}
+
+.admin-btn{
+    padding: 8px;
+    background-color: #5CC2B8;
+    color: white;
+    border-radius: 10px;
+    border:none;
+}
+.admin-btn:hover{
+    background-color: #5CC2B890;
+}
+
+.add-btn{
+    margin: 2%;
+    float: right;
+}
+.admin-input{
+    padding: 5px;
+    border: #DE9E37 solid 2px;
+    border-radius: 10px;
+    box-shadow: none;
+    outline: none;
+}
+
+.block-input{
+    margin: 1% !important;
+    border: #DE9E37 solid 2px;
+    border-radius: 10px;
+    box-shadow: none;
+    outline: none;
+}
+
+.admin-input:focus, .admin-input:active{
+    border: #D95B29 solid 2px;
+}
+.cover-img{
+    height: 40px;
+
+}
+
+#error{
+    margin-bottom: 2%;
+    display: none;
+}
+
+
+@media only screen and (max-width: 1400px) {
+    .admin-input{
+        width: 100%;
+    }
+
+}
+@media only screen and (max-width: 970px) {
+    * {
+        font-size: 15px !important;
+    }
+
+
+}
+@media only screen and (max-width: 780px) {
+    * {
+        font-size: 12px !important;
+    }
+
+}

@@ -1,0 +1,169 @@
+
+.content-border{
+    background-color: white;
+    padding: 2%;
+    border: #A8958380 solid 1px;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+.add-meeting{
+    margin-bottom: 4%;
+}
+.dropdown-sort{
+    padding-bottom: 4%;
+}
+.meeting-link:link, .meeting-link:visited, .meeting-link:focus,.meeting-link:active{
+    color: black;
+    text-decoration: none;
+}
+.meeting-link:hover{
+    color:#9876DC;
+}
+
+#page-content{
+    background-color: #9876DC20;
+    height: 100%;
+}
+html{
+    min-height: 100%;
+}
+#meeting-code{
+    margin-bottom: 4%;
+}
+
+.msg-container{
+    margin-bottom: 3%;
+}
+.form-edit{
+    display: block;
+    margin-left: 10%;
+}
+
+.form-edit input{
+    margin: 2%;
+}
+.edit-title{
+    margin-bottom: 5%;
+}
+
+.edit-input{
+    margin: 2%;
+
+    padding: 5px;
+    border: #9876DC solid 2px;
+    border-radius: 10px;
+    box-shadow: none;
+    outline: none;
+}
+.edit-input:focus, .edit-input:active{
+    border: #685AA3 solid 2px;
+}
+.edit-title{
+    margin-bottom: 5%;
+    font-weight: bold;
+}
+.admin-btn{
+    padding: 8px;
+    background-color: #5CC2B8;
+    color: white;
+    border-radius: 10px;
+    border:none;
+}
+.admin-btn:hover{
+    background-color: #5CC2B890;
+}
+
+.invite{
+    margin-bottom: 3%;
+}
+.invite-add-btn{
+    padding: 8px;
+    color: white;
+    border-radius: 10px;
+    border:none;
+    background-color: cornflowerblue;
+}
+.invite-add-btn:hover{
+    background-color:cornflowerblue ;
+}
+.delete-btn{
+    padding: 8px;
+    color: white;
+    border-radius: 10px;
+    border:none;
+    background-color: #D95B29;
+}
+.delete-btn:hover{
+    background-color:#D95B2990;
+}
+.admin-input{
+    padding: 5px;
+    border: #9876DC solid 2px;
+    border-radius: 10px;
+    box-shadow: none;
+    outline: none;
+}
+.admin-input:focus, .admin-input:active{
+    border: #685AA3 solid 2px;
+}
+
+.sort-link:link, .sort-link:visited, .sort-link:focus,.sort-link:active{
+    color: black;
+    text-decoration: none;
+    padding: 5%;
+}
+
+.sort-link:hover{
+    color:#9876DC;
+}
+
+.custom-file-upload {
+    background-color: white;
+    display: inline-block;
+    cursor: pointer;
+}
+#hidden-questions{
+    display: none;
+}
+.hidden-questions,.answered-questions, .unanswered-questions{
+    margin-bottom: 5%;
+}
+
+#show{
+    font-size: 15px;
+}
+
+.cover-img{
+    height: 40px;
+
+}
+
+#error{
+    margin-bottom: 2%;
+    display: none;
+}
+@media only screen and (max-width: 1400px) {
+    .admin-input{
+        width: 100%;
+    }
+
+}
+@media only screen and (max-width: 1000px) {
+    * {
+        font-size: 15px !important;
+    }
+
+
+}
+@media only screen and (max-width: 780px) {
+    * {
+        font-size: 11px !important;
+    }
+
+}
+@media only screen and (max-width: 780px) {
+    .cover-img{
+        height: 20px;
+    }
+}

@@ -1,0 +1,21 @@
+.main-login{
+    background-image: linear-gradient(700deg, #9876DC 25%, transparent 25%),
+    linear-gradient(150deg, #9876DC 25%, transparent 25%);
+}
+
+.container{
+    margin-top: 25vh;
+}
+.container-content form{
+    margin: 20px;
+}
+
+#form1 label, #form1 input{
+    margin: 15px;
+}
+
+
+
+.login-text{
+    margin: 0;
+}

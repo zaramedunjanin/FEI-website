@@ -1,0 +1,24 @@
+<body class="body" id ="page-content">
+<main>
+    <div class="container content-border">
+        <form class="form-edit" method="POST" action="/administrator/users/<%=user.id%>/update" autocomplete = "off">
+            <h2 class="edit-title">Edit user:</h2>
+            <label for="inputName">Name:</label><br>
+            <input class="edit-input" type="text" name="username" id="inputName" value="<%=user.username %>" placeholder="Name"><br>
+            <label for="inputEmail">E-mail address:</label><br>
+            <input class="edit-input" type="email" name="email" id="inputEmail" value="<%=user.email %>" placeholder="Email address"><br>
+
+            <label for="blockUser15">Block user for 15 days</label>
+            <input class="block-input" type="radio" name="block" id="blockUser15" value="blockUser15"><br>
+            <label for="blockUser30">Block user for 30 days</label>
+            <input class="block-input" type="radio" name="block" id="blockUser30" value="blockUser30"><br>
+            <label for="unblock">Unblock user</label>
+            <input class="block-input" type="radio" name="block" id="unblock" value="unblock"><br><br>
+            <button type="submit" class="admin-btn">Save</button>
+            <% if (message_error!== []) { %>
+                <div class="flash error"><%= message_error %></div>
+            <% } %>
+        </form>
+    </div>
+</main>
+</body>

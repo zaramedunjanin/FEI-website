@@ -1,0 +1,40 @@
+<body class="body" id ="page-content">
+<main>
+    <div class="container content-border">
+        <form class="form-edit" method="POST" action="/administrator/messages/<%= message.id%>/update" autocomplete = "off">
+            <h2 class="edit-title">Edit message:</h2>
+            <label for="inputName">Message Content:</label><br>
+            <input class="edit-input" type="text" name="content" id="inputName" value="<%= message.content %>" placeholder="Name"><br>
+            <label for="inputEmail">Type:</label><br>
+        <%if(message.type.toString()==="Unanswered"){%>
+                <select id="inputType" name="type" class="edit-input">
+                    <option value="Unanswered" name="once" selected>Unanswered</option>
+                    <option value="Answered"  name="every-week">Answered</option>
+                    <option value="Forbidden" name="every-month" >Forbidden</option>
+                </select><br>
+            <%}%>
+            <%if(message.type.toString()==="Answered"){%>
+                <select id="inputType" name="type" class="edit-input">
+                    <option value="Unanswered" name="once" >Unanswered</option>
+                    <option value="Answered"  name="every-week" selected>Answered</option>
+                    <option value="Forbidden" name="every-month" >Forbidden</option>
+                </select><br>
+            <%}%>
+            <%if(message.type.toString()==="Forbidden"){%>
+                <select id="inputType" name="type" class="edit-input">
+                    <option value="Unanswered" name="once" >Unanswered</option>
+                    <option value="Answered"  name="every-week">Answered</option>
+                    <option value="Forbidden" name="every-month" selected>Forbidden</option>
+                </select><br>
+            <%}%>
+            <label for="inputEmail">Room ID:</label><br>
+            <input class="edit-input" type="text" name="room_id" id="inputEmail" value="<%= message.room_id %>" placeholder="Email address"><br>
+
+            <button type="submit" class="admin-btn">Save</button>
+            <% if (message_error!== []) { %>
+                <div class="flash error"><%= message_error %></div>
+            <% } %>
+        </form>
+    </div>
+</main>
+</body>

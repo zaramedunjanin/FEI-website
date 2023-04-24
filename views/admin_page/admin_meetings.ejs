@@ -1,0 +1,45 @@
+<body class="body" id ="page-content">
+<main>
+    <div class="container content-border">
+        <a href="/administrator/meetings/add">
+            <button class="admin-btn add-btn">Add Meetings</button>
+        </a>
+
+        <table id = "table_id" class="table table-responsive table-hover db-table text-center">
+
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Code</th>
+                <th scope="col">Date</th>
+                <th scope="col">Repeat</th>
+                <th scope="col">Cover</th>
+                <th scope="col">User ID</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+
+            </tr>
+
+            <%for(let i = 0; i < meetings.length; i+=1){%>
+            <tr id="row<%=meetings[i].id%>">
+                <td><%= meetings[i].id%></td>
+                <td><%= meetings[i].name%></td>
+                <td><%= meetings[i].code%></td>
+                <td><%= meetings[i].time.toLocaleDateString()%></td>
+                <td><%= meetings[i].repeat%></td>
+                <td><img class="cover-img" src="<%= meetings[i].cover %>" alt="No Cover"></td>
+                <td><%= meetings[i].presenter_id%></td>
+
+                <td>
+                    <a href="/administrator/meetings/<%=meetings[i].id%>/edit"><button name="edit_button" class="admin-btn" type="button">Edit</button></a>
+                </td>
+                <td>
+                    <a href="/administrator/meetings/<%=meetings[i].id%>/delete"><button name="delete_button" class="admin-btn" type="button">Delete</button></a>
+                </td>
+            </tr>
+            <%}%>
+
+        </table>
+    </div>
+</main>
+</body>

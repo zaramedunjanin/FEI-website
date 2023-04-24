@@ -1,0 +1,30 @@
+
+#navbar-container-admin{
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #DE9E37;
+    box-shadow: 0 4px 10px -6px #5C8799;
+}
+#navbar-container-presenter{
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #9876DC;
+    box-shadow: 0 4px 10px -6px #5C8799;
+}
+
+.navbar-nav{
+    margin-right: auto;
+}
+
+.nav-item{
+    white-space: nowrap;
+    margin-left: 2%;
+}
+.nav-link:link, .nav-link:visited, .nav-link:focus,  #account-button{
+    color: white;
+    border: none;
+}
+.nav-link:hover, #account-button:hover, .nav-link:active{
+    color: white !important;
+    text-decoration: underline;
+}

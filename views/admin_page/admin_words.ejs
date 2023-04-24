@@ -1,0 +1,62 @@
+
+<body class="body" id ="page-content">
+<main>
+    <div class="container content-border">
+        <a href="/administrator/words/add">
+            <button class="admin-btn add-btn">Add Words</button>
+        </a>
+        <table id = "table_id" class="table table-hover db-table text-center">
+
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Word</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+
+            </tr>
+
+            <%for(let i = 0; i < words.length; i+=1){%>
+            <tr id="row<%=words[i].id%>">
+                <td><%= words[i].id%></td>
+                <td><%= words[i].word%></td>
+                <td>
+                    <a href="/administrator/words/<%=words[i].id%>/edit"><button name="delete_button" class="admin-btn" type="button">Edit</button></a>
+                </td>
+                <td>
+                    <a href="/administrator/words/<%=words[i].id%>/delete"><button name="delete_button" class="admin-btn" type="button">Delete</button></a>
+                </td>
+            </tr>
+            <%}%>
+
+        </table>
+    </div>
+    <script>
+/*
+        $(document).ready(function() {
+            load_data();
+
+            function load_data() {
+                $.ajax({
+                    url: "http://localhost:3000/administrator/words/get",
+                    method: "GET",
+                    dataType: "json",
+                    success: function (res) {
+                        if (res.words.length > 0) {
+                            let word = res.words;
+                            for (let i = 0; i < word.length; i++) {
+                                $('#table_id').append(`<tr><td>`+word[i].id+`</td>
+                                 <td>`+word[i].word+`</td>
+                                </tr>`);
+                            }
+                        }
+
+                    }
+
+                });
+
+            };
+        });
+*/
+    </script>
+</main>
+</body>

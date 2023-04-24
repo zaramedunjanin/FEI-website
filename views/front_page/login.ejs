@@ -1,0 +1,27 @@
+<body class="body">
+    <main class="main-login main">
+        <div class="container text-center">
+            <div class="flashes">
+                    <% if (message_success !== []) { %>
+                        <div class="flash success"><%= message_success %></div>
+                    <% } if (message_error!== []) { %>
+                            <div class="flash error"><%= message_error %></div>
+                    <% } %>
+            </div>
+            <h3>Log in to your <%=name%> account:</h3>
+            <form id="form1" action="/login" method="POST" autocomplete = "off">
+                <label for="username">Username:</label>
+                <input id = "username" name="username" class="page-input" type="text" placeholder="Username" required><br>
+                <label for="email">E-mail:</label>
+                <input id = "email" name="email" class="page-input" type="email" placeholder="E-mail" required><br>
+                <label for="password">Password:</label>
+                <input id = "password" name="password" class="page-input"  type="password" placeholder="Password" required><br>
+                <button class="page-btn " type="submit">Log in</button>
+            </form>
+            <div class="redirect-msg">
+                <p class="login-text">Don't have an account?</p>
+                <button id = "login-btn" class="page-btn"><a class="button-link" href="/signup">Sign up for Free</a></button>
+            </div>
+        </div>
+    </main>
+</body>

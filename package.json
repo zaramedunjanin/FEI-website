@@ -1,0 +1,32 @@
+{
+  "name": "opkn-projekat---zara-medunjanin",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.1",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "~1.4.4",
+    "date-format": "^4.0.14",
+    "dateformat": "^5.0.3",
+    "debug": "~2.6.9",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.3",
+    "formidable": "^2.1.1",
+    "http-errors": "~1.6.3",
+    "jsonwebtoken": "^9.0.0",
+    "morgan": "~1.9.1",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.0",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "pg": "^8.8.0",
+    "socket.io": "^4.5.4"
+  }
+}
