@@ -2,6 +2,8 @@
 
 FEI is a website for easier creation and participation in meetings of any kind.
 
+![fei_front](https://github.com/zaramedunjanin/FEI-website/assets/96110353/3275bc99-6b11-4253-8e94-e65a896a8e6b)
+
 ## Description
 
 The website has three types of users, with different capabilities :
