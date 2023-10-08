@@ -2,7 +2,7 @@
 
 FEI is a website for easier creation and participation in meetings of any kind.
 
-![fei_front](https://github.com/zaramedunjanin/FEI-website/assets/96110353/3275bc99-6b11-4253-8e94-e65a896a8e6b)
+![fei_front](https://github.com/zaramedunjanin/FEI-website/assets/96110353/07143d91-9391-487c-94d8-3e380c765e9e)
 
 ## Description
 
